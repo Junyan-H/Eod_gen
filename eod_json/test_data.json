@@ -60,12 +60,15 @@
   "current_blocker": null,
   "last_updated": "2025-08-19 01:52:08",
   "session_info": {
+    "pack_operator": "12",
+    "support_operator": "12",
+    "location": "12",
     "pack_number": "12",
     "key_used": "12",
     "glove_number": "12",
     "dongle_number": "12",
     "phone_id": "12",
-    "date": "2025-08-19",
-    "initialized_at": "2025-08-19 01:49:53"
+    "date": "2025-08-24",
+    "initialized_at": "2025-08-24 14:31:36"
   }
 }

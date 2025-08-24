@@ -1,0 +1,163 @@
+{% extends "base.html" %}
+
+{% block title %}EOD Report - {{ today }}{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-10">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0"><i class="fas fa-file-alt me-2"></i>End of Day Report - {{ today }}</h5>
+                <div>
+                    <button onclick="window.print()" class="btn btn-outline-primary btn-sm">
+                        <i class="fas fa-print me-1"></i>Print
+                    </button>
+                    <a href="{{ url_for('dashboard') }}" class="btn btn-primary btn-sm">
+                        <i class="fas fa-arrow-left me-1"></i>Back to Dashboard
+                    </a>
+                </div>
+            </div>
+            <div class="card-body">
+                {% if session_info %}
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <h6><i class="fas fa-info-circle me-2"></i>Session Information</h6>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <table class="table table-sm">
+                                    <tr><td><strong>Pack Number:</strong></td><td>{{ session_info.pack_number or 'N/A' }}</td></tr>
+                                    <tr><td><strong>Key Used:</strong></td><td>{{ session_info.key_used or 'N/A' }}</td></tr>
+                                    <tr><td><strong>Glove #:</strong></td><td>{{ session_info.glove_number or 'N/A' }}</td></tr>
+                                    <tr><td><strong>Location:</strong></td><td>{{ session_info.location or 'N/A' }}</td></tr>
+                                </table>
+                            </div>
+                            <div class="col-md-6">
+                                <table class="table table-sm">
+                                    <tr><td><strong>Dongle #:</strong></td><td>{{ session_info.dongle_number or 'N/A' }}</td></tr>
+                                    <tr><td><strong>Phone ID:</strong></td><td>{{ session_info.phone_id or 'N/A' }}</td></tr>
+                                    <tr><td><strong>Pack Operator:</strong></td><td>{{ session_info.pack_operator or 'N/A' }}</td></tr>
+                                    <tr><td><strong>Support Operator:</strong></td><td>{{ session_info.support_operator or 'N/A' }}</td></tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                {% endif %}
+
+                {% if current_blocker %}
+                <div class="alert alert-warning mb-4">
+                    <h6><i class="fas fa-exclamation-triangle me-2"></i>Warning</h6>
+                    <p class="mb-0">Active blocker still running: <strong>{{ current_blocker.description }}</strong></p>
+                </div>
+                {% endif %}
+
+                {% if today_blockers %}
+                <div class="mb-4">
+                    <h6><i class="fas fa-chart-bar me-2"></i>Summary</h6>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="text-center p-3 border rounded">
+                                <h4 class="text-primary">{{ today_blockers|length }}</h4>
+                                <small class="text-muted">Blockers Encountered</small>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="text-center p-3 border rounded">
+                                <h4 class="text-warning">{{ (total_minutes // 60) }}h {{ (total_minutes % 60) }}m</h4>
+                                <small class="text-muted">Total Time Blocked</small>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="text-center p-3 border rounded">
+                                <h4 class="text-info">{{ (total_minutes / today_blockers|length) | round(0) | int }}</h4>
+                                <small class="text-muted">Average Minutes per Blocker</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h6><i class="fas fa-list me-2"></i>Detailed Breakdown</h6>
+                {% for blocker in today_blockers %}
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div class="flex-grow-1">
+                                <h6 class="card-title">{{ loop.index }}. {{ blocker.description }}</h6>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <small class="text-muted">
+                                            <strong>Time:</strong> {{ blocker.start_time }} → {{ blocker.end_time }}
+                                        </small>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <small class="text-muted">
+                                            <strong>Duration:</strong> {{ (blocker.duration_minutes // 60) }}h {{ (blocker.duration_minutes % 60) }}m
+                                        </small>
+                                    </div>
+                                </div>
+
+                                {% if blocker.tickets %}
+                                <div class="mt-2">
+                                    <strong class="text-primary">Tickets:</strong>
+                                    {% for ticket in blocker.tickets %}
+                                        <span class="badge bg-secondary me-1">
+                                            {% if ticket.link and ticket.link != 'LINK: ' %}
+                                                <a href="{{ ticket.link.replace('LINK: ', '') }}" class="text-white text-decoration-none" target="_blank">{{ ticket.number }}</a>
+                                            {% else %}
+                                                {{ ticket.number }}
+                                            {% endif %}
+                                        </span>
+                                    {% endfor %}
+                                </div>
+                                {% endif %}
+
+                                {% if blocker.notes %}
+                                <div class="mt-2">
+                                    <strong class="text-success">Notes:</strong>
+                                    {% for note in blocker.notes %}
+                                        <div class="mt-1 p-2 bg-light rounded">
+                                            <small class="text-muted">[{{ note.timestamp }}]</small>
+                                            <div>{{ note.content }}</div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                
+                {% else %}
+                <div class="text-center py-5">
+                    <div class="text-muted">
+                        <i class="fas fa-check-circle fa-3x mb-3"></i>
+                        <h5>No blockers encountered today!</h5>
+                        <p>Great job! No issues to report.</p>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+@media print {
+    .navbar, .btn, .card-header .btn {
+        display: none !important;
+    }
+    
+    .card {
+        border: none !important;
+        box-shadow: none !important;
+    }
+    
+    .container {
+        max-width: 100% !important;
+        padding: 0 !important;
+    }
+}
+</style>
+{% endblock %}

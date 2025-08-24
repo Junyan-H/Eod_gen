@@ -45,6 +45,22 @@ class JsonHandler:
     def save_data(self) -> None:
         with open(self.filename, 'w') as f:
             json.dump(self.data, f, indent=2)
+'''
+status tracker
+'''
+class StatusTracker:
+    def __init__(self, test_mode: bool = False) -> None:
+        if test_mode:
+            print("TEST MODE ACTIVATED")
+            self.js_handler = JsonHandler("status_json/test_data.json")
+        else:
+            self.js_handler = JsonHandler()
+
+        '''
+        Generates a status report:
+        three status types: break, collecting, blocker
+        '''
+
 
 '''
 eod runner
@@ -71,14 +87,20 @@ class EODTracker:
         print("SESSION INITIALIZATION")
         print("="*60)
         print("Please provide the following information (if none put NA):")
-        
-        pack_number = input("Pack Number: ").strip()
+
+        pack_operator = input("Pack Operator: ").strip()
+        support_operator = input("Support Operator: ").strip()
+        location = input("Location: ").strip()
+        pack_number = input("Pack Numbers: ").strip()
         key_used = input("Key Used: ").strip()
         glove_number = input("Glove #: ").strip()
         dongle_number = input("Dongle #: ").strip()
         phone_id = input("Phone ID: ").strip()
 
         session_info = {
+            "pack_operator": pack_operator,
+            "support_operator": support_operator,
+            "location": location,
             "pack_number": pack_number,
             "key_used": key_used,
             "glove_number": glove_number,

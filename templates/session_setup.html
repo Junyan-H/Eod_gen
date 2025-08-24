@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+{% block title %}Session Setup - EOD Generator{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0"><i class="fas fa-cog me-2"></i>Session Information Setup</h5>
+            </div>
+            <div class="card-body">
+                <form method="POST">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="pack_operator" class="form-label">Pack Operator</label>
+                            <input type="text" class="form-control" name="pack_operator" id="pack_operator" 
+                                   value="{{ session_info.pack_operator or '' }}" placeholder="Enter pack operator or NA">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="support_operator" class="form-label">Support Operator</label>
+                            <input type="text" class="form-control" name="support_operator" id="support_operator" 
+                                   value="{{ session_info.support_operator or '' }}" placeholder="Enter support operator or NA">
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="location" class="form-label">Location</label>
+                            <input type="text" class="form-control" name="location" id="location" 
+                                   value="{{ session_info.location or '' }}" placeholder="Enter location or NA">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="pack_number" class="form-label">Pack Numbers</label>
+                            <input type="text" class="form-control" name="pack_number" id="pack_number" 
+                                   value="{{ session_info.pack_number or '' }}" placeholder="Enter pack numbers or NA">
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="key_used" class="form-label">Key Used</label>
+                            <input type="text" class="form-control" name="key_used" id="key_used" 
+                                   value="{{ session_info.key_used or '' }}" placeholder="Enter key used or NA">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="glove_number" class="form-label">Glove #</label>
+                            <input type="text" class="form-control" name="glove_number" id="glove_number" 
+                                   value="{{ session_info.glove_number or '' }}" placeholder="Enter glove number or NA">
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="dongle_number" class="form-label">Dongle #</label>
+                            <input type="text" class="form-control" name="dongle_number" id="dongle_number" 
+                                   value="{{ session_info.dongle_number or '' }}" placeholder="Enter dongle number or NA">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="phone_id" class="form-label">Phone ID</label>
+                            <input type="text" class="form-control" name="phone_id" id="phone_id" 
+                                   value="{{ session_info.phone_id or '' }}" placeholder="Enter phone ID or NA">
+                        </div>
+                    </div>
+                    
+                    <hr>
+                    
+                    <div class="d-flex justify-content-between">
+                        <a href="{{ url_for('dashboard') }}" class="btn btn-secondary">
+                            <i class="fas fa-arrow-left me-1"></i>Back to Dashboard
+                        </a>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-save me-1"></i>Save Session Info
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
