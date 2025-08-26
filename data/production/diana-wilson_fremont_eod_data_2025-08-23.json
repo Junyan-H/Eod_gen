@@ -1,0 +1,73 @@
+{
+  "blockers": [
+    {
+      "description": "Software crash on startup",
+      "category": "connectivity",
+      "start_time": "2025-08-23 14:21:00",
+      "end_time": "2025-08-23 15:31:00",
+      "duration_minutes": 70,
+      "tickets": [],
+      "notes": []
+    },
+    {
+      "description": "Authentication service down",
+      "category": "hardware",
+      "start_time": "2025-08-23 10:49:00",
+      "end_time": "2025-08-23 12:21:00",
+      "duration_minutes": 92,
+      "tickets": [
+        {
+          "number": "TKT-3813",
+          "link": "LINK: https://support.example.com/ticket/3469"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "description": "Network connectivity issue",
+      "category": "software",
+      "start_time": "2025-08-23 10:53:00",
+      "end_time": "2025-08-23 12:28:00",
+      "duration_minutes": 95,
+      "tickets": [],
+      "notes": []
+    },
+    {
+      "description": "Database connection timeout",
+      "category": "other",
+      "start_time": "2025-08-23 08:36:00",
+      "end_time": "2025-08-23 10:12:00",
+      "duration_minutes": 96,
+      "tickets": [
+        {
+          "number": "TKT-5319",
+          "link": "LINK: https://support.example.com/ticket/4193"
+        },
+        {
+          "number": "TKT-8559",
+          "link": "LINK: https://support.example.com/ticket/3929"
+        }
+      ],
+      "notes": [
+        {
+          "content": "Escalated to network team",
+          "timestamp": "2025-08-23 09:20:00"
+        }
+      ]
+    }
+  ],
+  "current_blocker": null,
+  "last_updated": "2025-08-23 10:12:00",
+  "session_info": {
+    "pack_operator": "Diana Wilson",
+    "support_operator": "Support Team A",
+    "location": "Fremont",
+    "pack_number": "PACK-395",
+    "key_used": "KEY-42",
+    "glove_number": "GLV-730",
+    "dongle_number": "DNG-1734",
+    "phone_id": "PH-775",
+    "date": "2025-08-23",
+    "initialized_at": "2025-08-23 08:00:00"
+  }
+}

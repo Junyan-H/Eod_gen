@@ -1,0 +1,36 @@
+{
+  "blockers": [
+    {
+      "description": "System update installation",
+      "category": "software",
+      "start_time": "2025-08-22 09:12:00",
+      "end_time": "2025-08-22 10:11:00",
+      "duration_minutes": 59,
+      "tickets": [],
+      "notes": []
+    },
+    {
+      "description": "Network connectivity issue",
+      "category": "connectivity",
+      "start_time": "2025-08-22 08:13:00",
+      "end_time": "2025-08-22 09:40:00",
+      "duration_minutes": 87,
+      "tickets": [],
+      "notes": []
+    }
+  ],
+  "current_blocker": null,
+  "last_updated": "2025-08-22 09:40:00",
+  "session_info": {
+    "pack_operator": "Charlie Brown",
+    "support_operator": "Support Team A",
+    "location": "Oakland",
+    "pack_number": "PACK-701",
+    "key_used": "KEY-99",
+    "glove_number": "GLV-116",
+    "dongle_number": "DNG-6524",
+    "phone_id": "PH-918",
+    "date": "2025-08-22",
+    "initialized_at": "2025-08-22 08:00:00"
+  }
+}

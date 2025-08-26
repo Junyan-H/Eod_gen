@@ -1,0 +1,48 @@
+{
+  "blockers": [
+    {
+      "description": "Previous resolved issue",
+      "category": "software",
+      "start_time": "2025-08-26 09:15:00",
+      "end_time": "2025-08-26 09:45:00",
+      "duration_minutes": 30,
+      "tickets": [
+        {
+          "number": "TKT-1234",
+          "link": "LINK: https://support.example.com/1234"
+        }
+      ],
+      "notes": []
+    }
+  ],
+  "current_blocker": {
+    "description": "Active network connectivity issue - investigating",
+    "category": "connectivity",
+    "start_time": "2025-08-26 14:30:00",
+    "tickets": [
+      {
+        "number": "URGENT-5678",
+        "link": "LINK: https://support.example.com/5678"
+      }
+    ],
+    "notes": [
+      {
+        "content": "Initial investigation shows intermittent packet loss",
+        "timestamp": "2025-08-26 14:35:00"
+      }
+    ]
+  },
+  "last_updated": "2025-08-26 14:35:00",
+  "session_info": {
+    "pack_operator": "John Smith",
+    "support_operator": "Emergency Response",
+    "location": "Fremont",
+    "pack_number": "PACK-555",
+    "key_used": "KEY-77",
+    "glove_number": "GLV-888",
+    "dongle_number": "DNG-9999",
+    "phone_id": "PH-555",
+    "date": "2025-08-26",
+    "initialized_at": "2025-08-26 08:00:00"
+  }
+}

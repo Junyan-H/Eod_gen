@@ -1,0 +1,133 @@
+{
+  "blockers": [
+    {
+      "description": "Database cluster failure - all applications down",
+      "category": "hardware",
+      "start_time": "2025-08-25 12:03:00",
+      "end_time": "2025-08-25 13:26:00",
+      "duration_minutes": 83,
+      "tickets": [
+        {
+          "number": "HIGH-5074",
+          "link": "LINK: https://support.example.com/ticket/5414"
+        }
+      ],
+      "notes": [
+        {
+          "content": "Root cause identified - hardware failure",
+          "timestamp": "2025-08-25 12:35:00"
+        },
+        {
+          "content": "Coordinating with vendor support",
+          "timestamp": "2025-08-25 12:56:00"
+        }
+      ]
+    },
+    {
+      "description": "Network infrastructure failure - site-wide impact",
+      "category": "connectivity",
+      "start_time": "2025-08-25 12:58:00",
+      "end_time": "2025-08-25 13:51:00",
+      "duration_minutes": 53,
+      "tickets": [
+        {
+          "number": "HIGH-8136",
+          "link": "LINK: https://support.example.com/ticket/1699"
+        },
+        {
+          "number": "HIGH-9487",
+          "link": "LINK: https://support.example.com/ticket/3243"
+        }
+      ],
+      "notes": [
+        {
+          "content": "Coordinating with vendor support",
+          "timestamp": "2025-08-25 13:08:00"
+        }
+      ]
+    },
+    {
+      "description": "Critical system outage - multiple services affected",
+      "category": "software",
+      "start_time": "2025-08-25 11:07:00",
+      "end_time": "2025-08-25 13:10:00",
+      "duration_minutes": 123,
+      "tickets": [
+        {
+          "number": "HIGH-8248",
+          "link": "LINK: https://support.example.com/ticket/9445"
+        }
+      ],
+      "notes": [
+        {
+          "content": "Escalated to senior technical team",
+          "timestamp": "2025-08-25 11:35:00"
+        },
+        {
+          "content": "Coordinating with vendor support",
+          "timestamp": "2025-08-25 12:29:00"
+        },
+        {
+          "content": "Implemented temporary workaround",
+          "timestamp": "2025-08-25 11:57:00"
+        }
+      ]
+    },
+    {
+      "description": "Database cluster failure - all applications down",
+      "category": "connectivity",
+      "start_time": "2025-08-25 08:50:00",
+      "end_time": "2025-08-25 10:11:00",
+      "duration_minutes": 81,
+      "tickets": [
+        {
+          "number": "HIGH-3241",
+          "link": "LINK: https://support.example.com/ticket/1227"
+        }
+      ],
+      "notes": [
+        {
+          "content": "Implemented temporary workaround",
+          "timestamp": "2025-08-25 09:14:00"
+        }
+      ]
+    },
+    {
+      "description": "Security incident - immediate response required",
+      "category": "software",
+      "start_time": "2025-08-25 13:43:00",
+      "end_time": "2025-08-25 15:27:00",
+      "duration_minutes": 104,
+      "tickets": [
+        {
+          "number": "HIGH-3689",
+          "link": "LINK: https://support.example.com/ticket/7060"
+        }
+      ],
+      "notes": [
+        {
+          "content": "Escalated to senior technical team",
+          "timestamp": "2025-08-25 15:07:00"
+        },
+        {
+          "content": "Multiple departments affected - high priority",
+          "timestamp": "2025-08-25 15:00:00"
+        }
+      ]
+    }
+  ],
+  "current_blocker": null,
+  "last_updated": "2025-08-25 15:27:00",
+  "session_info": {
+    "pack_operator": "Alice Smith",
+    "support_operator": "Secondary Support",
+    "location": "San Jose",
+    "pack_number": "PACK-845",
+    "key_used": "KEY-64",
+    "glove_number": "GLV-697",
+    "dongle_number": "DNG-3220",
+    "phone_id": "PH-764",
+    "date": "2025-08-25",
+    "initialized_at": "2025-08-25 08:00:00"
+  }
+}

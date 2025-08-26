@@ -1,0 +1,17 @@
+{
+  "blockers": [],
+  "current_blocker": null,
+  "last_updated": "2025-08-23 09:00:00",
+  "session_info": {
+    "pack_operator": "Test User1",
+    "support_operator": "Test Support",
+    "location": "Demo Site",
+    "pack_number": "TEST-PACK-80",
+    "key_used": "TEST-KEY-2",
+    "glove_number": "TEST-GLV-89",
+    "dongle_number": "TEST-DNG-602",
+    "phone_id": "TEST-PH-28",
+    "date": "2025-08-23",
+    "initialized_at": "2025-08-23 09:00:00"
+  }
+}

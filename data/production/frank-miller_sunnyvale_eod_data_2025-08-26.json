@@ -1,0 +1,64 @@
+{
+  "blockers": [
+    {
+      "description": "Printer connectivity problem",
+      "category": "hardware",
+      "start_time": "2025-08-26 08:10:00",
+      "end_time": "2025-08-26 09:36:00",
+      "duration_minutes": 86,
+      "tickets": [],
+      "notes": [
+        {
+          "content": "User training provided",
+          "timestamp": "2025-08-26 09:12:00"
+        }
+      ]
+    },
+    {
+      "description": "Software update deployment",
+      "category": "software",
+      "start_time": "2025-08-26 15:52:00",
+      "end_time": "2025-08-26 16:23:00",
+      "duration_minutes": 31,
+      "tickets": [
+        {
+          "number": "LOW-2655",
+          "link": "LINK: https://support.example.com/ticket/2009"
+        },
+        {
+          "number": "LOW-1733",
+          "link": "LINK: https://support.example.com/ticket/2195"
+        }
+      ],
+      "notes": [
+        {
+          "content": "Documentation updated",
+          "timestamp": "2025-08-26 16:17:00"
+        }
+      ]
+    },
+    {
+      "description": "Routine maintenance window",
+      "category": "other",
+      "start_time": "2025-08-26 15:09:00",
+      "end_time": "2025-08-26 15:44:00",
+      "duration_minutes": 35,
+      "tickets": [],
+      "notes": []
+    }
+  ],
+  "current_blocker": null,
+  "last_updated": "2025-08-26 15:44:00",
+  "session_info": {
+    "pack_operator": "Frank Miller",
+    "support_operator": "Primary Support",
+    "location": "Sunnyvale",
+    "pack_number": "PACK-429",
+    "key_used": "KEY-68",
+    "glove_number": "GLV-768",
+    "dongle_number": "DNG-4401",
+    "phone_id": "PH-555",
+    "date": "2025-08-26",
+    "initialized_at": "2025-08-26 08:00:00"
+  }
+}

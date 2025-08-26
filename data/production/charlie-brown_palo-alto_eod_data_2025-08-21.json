@@ -1,0 +1,32 @@
+{
+  "blockers": [
+    {
+      "description": "Hardware malfunction detected",
+      "category": "other",
+      "start_time": "2025-08-21 08:56:00",
+      "end_time": "2025-08-21 10:34:00",
+      "duration_minutes": 98,
+      "tickets": [],
+      "notes": [
+        {
+          "content": "Issue resolved after system restart",
+          "timestamp": "2025-08-21 09:55:00"
+        }
+      ]
+    }
+  ],
+  "current_blocker": null,
+  "last_updated": "2025-08-21 10:34:00",
+  "session_info": {
+    "pack_operator": "Charlie Brown",
+    "support_operator": "On-Call Support",
+    "location": "Palo Alto",
+    "pack_number": "PACK-833",
+    "key_used": "KEY-89",
+    "glove_number": "GLV-402",
+    "dongle_number": "DNG-1381",
+    "phone_id": "PH-866",
+    "date": "2025-08-21",
+    "initialized_at": "2025-08-21 08:00:00"
+  }
+}

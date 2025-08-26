@@ -1,0 +1,32 @@
+{
+  "blockers": [
+    {
+      "description": "Email service intermittent",
+      "category": "other",
+      "start_time": "2025-08-26 13:28:00",
+      "end_time": "2025-08-26 13:44:00",
+      "duration_minutes": 16,
+      "tickets": [],
+      "notes": [
+        {
+          "content": "Documentation updated",
+          "timestamp": "2025-08-26 13:34:00"
+        }
+      ]
+    }
+  ],
+  "current_blocker": null,
+  "last_updated": "2025-08-26 13:44:00",
+  "session_info": {
+    "pack_operator": "Grace Taylor",
+    "support_operator": "Secondary Support",
+    "location": "Mountain View",
+    "pack_number": "PACK-842",
+    "key_used": "KEY-76",
+    "glove_number": "GLV-590",
+    "dongle_number": "DNG-7539",
+    "phone_id": "PH-655",
+    "date": "2025-08-26",
+    "initialized_at": "2025-08-26 08:00:00"
+  }
+}

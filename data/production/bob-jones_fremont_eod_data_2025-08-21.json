@@ -1,0 +1,36 @@
+{
+  "blockers": [
+    {
+      "description": "Software crash on startup",
+      "category": "hardware",
+      "start_time": "2025-08-21 08:17:00",
+      "end_time": "2025-08-21 08:29:00",
+      "duration_minutes": 12,
+      "tickets": [],
+      "notes": []
+    },
+    {
+      "description": "Hardware malfunction detected",
+      "category": "software",
+      "start_time": "2025-08-21 16:48:00",
+      "end_time": "2025-08-21 17:26:00",
+      "duration_minutes": 38,
+      "tickets": [],
+      "notes": []
+    }
+  ],
+  "current_blocker": null,
+  "last_updated": "2025-08-21 17:26:00",
+  "session_info": {
+    "pack_operator": "Bob Jones",
+    "support_operator": "Support Team B",
+    "location": "Fremont",
+    "pack_number": "PACK-424",
+    "key_used": "KEY-91",
+    "glove_number": "GLV-863",
+    "dongle_number": "DNG-2309",
+    "phone_id": "PH-234",
+    "date": "2025-08-21",
+    "initialized_at": "2025-08-21 08:00:00"
+  }
+}

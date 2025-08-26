@@ -1,0 +1,77 @@
+{
+  "blockers": [
+    {
+      "description": "Printer offline error",
+      "category": "other",
+      "start_time": "2025-08-25 11:55:00",
+      "end_time": "2025-08-25 12:36:00",
+      "duration_minutes": 41,
+      "tickets": [
+        {
+          "number": "TKT-9301",
+          "link": "LINK: https://support.example.com/ticket/6471"
+        },
+        {
+          "number": "TKT-5112",
+          "link": "LINK: https://support.example.com/ticket/2651"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "description": "Printer offline error",
+      "category": "connectivity",
+      "start_time": "2025-08-25 14:42:00",
+      "end_time": "2025-08-25 14:50:00",
+      "duration_minutes": 8,
+      "tickets": [],
+      "notes": []
+    },
+    {
+      "description": "System update installation",
+      "category": "other",
+      "start_time": "2025-08-25 14:17:00",
+      "end_time": "2025-08-25 14:34:00",
+      "duration_minutes": 17,
+      "tickets": [],
+      "notes": [
+        {
+          "content": "Temporary workaround implemented",
+          "timestamp": "2025-08-25 14:33:00"
+        }
+      ]
+    },
+    {
+      "description": "VPN connection failed",
+      "category": "connectivity",
+      "start_time": "2025-08-25 13:39:00",
+      "end_time": "2025-08-25 14:02:00",
+      "duration_minutes": 23,
+      "tickets": [
+        {
+          "number": "TKT-2004",
+          "link": "LINK: https://support.example.com/ticket/5741"
+        },
+        {
+          "number": "TKT-3960",
+          "link": "LINK: https://support.example.com/ticket/9222"
+        }
+      ],
+      "notes": []
+    }
+  ],
+  "current_blocker": null,
+  "last_updated": "2025-08-25 14:02:00",
+  "session_info": {
+    "pack_operator": "Alice Smith",
+    "support_operator": "Support Team A",
+    "location": "Berkeley",
+    "pack_number": "PACK-316",
+    "key_used": "KEY-74",
+    "glove_number": "GLV-577",
+    "dongle_number": "DNG-4062",
+    "phone_id": "PH-124",
+    "date": "2025-08-25",
+    "initialized_at": "2025-08-25 08:00:00"
+  }
+}

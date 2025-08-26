@@ -15,7 +15,9 @@
                     </a>
                 </div>
             </div>
+
             <div class="card-body">
+
                 <!-- Key Metrics Row -->
                 <div class="row mb-4">
                     <div class="col-md-3">
@@ -47,6 +49,100 @@
         </div>
     </div>
 </div>
+
+<!-- Individual Operator Performance -->
+<div class="row">
+    <div class="col-12 mb-4">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h6 class="mb-0"><i class="fas fa-users me-2"></i>Individual Operator Performance</h6>
+                <div>
+                    {% if showing_today_operators %}
+                    <span class="badge bg-success">Active Today</span>
+                    {% else %}
+                    <span class="badge bg-warning">Last Active: {{ active_operators_date }}</span>
+                    {% endif %}
+                    <span class="badge bg-info ms-1">{{ operator_analytics|length }} operators</span>
+                </div>
+            </div>
+            <div class="card-body">
+                {% if operator_analytics %}
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th>Operator</th>
+                            <th>Location</th>
+                            <th>Efficiency Score</th>
+                            <th>Total Incidents</th>
+                            <th>Avg Resolution</th>
+                            <th>Active Days</th>
+                            <th>Primary Issues</th>
+                            <th>Performance Trend</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for operator_id, analytics in operator_analytics.items() %}
+                        <tr>
+                            <td>
+                                <div class="fw-bold">{{ analytics.operator_name }}</div>
+                                <small class="text-muted">{{ operator_id.replace('_', ' ') }}</small>
+                            </td>
+                            <td>{{ analytics.location }}</td>
+                            <td>
+                                {% if analytics.efficiency_score >= 90 %}
+                                <span class="badge bg-success fs-6">{{ analytics.efficiency_score }}%</span>
+                                {% elif analytics.efficiency_score >= 80 %}
+                                <span class="badge bg-info fs-6">{{ analytics.efficiency_score }}%</span>
+                                {% elif analytics.efficiency_score >= 70 %}
+                                <span class="badge bg-warning fs-6">{{ analytics.efficiency_score }}%</span>
+                                {% else %}
+                                <span class="badge bg-danger fs-6">{{ analytics.efficiency_score }}%</span>
+                                {% endif %}
+                            </td>
+                            <td>
+                                <span class="badge bg-secondary">{{ analytics.total_blockers }}</span>
+                            </td>
+                            <td>{{ analytics.avg_resolution_time }}min</td>
+                            <td>{{ analytics.active_days }}/8</td>
+                            <td>
+                                {% if analytics.categories %}
+                                {% set top_category = analytics.categories.items()|list|sort(attribute='1', reverse=true)|first %}
+                                <span class="badge bg-secondary">{{ top_category[0] }} ({{ top_category[1] }})</span>
+                                {% else %}
+                                <span class="text-muted">None</span>
+                                {% endif %}
+                            </td>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    {% for day_perf in analytics.daily_performance[-5:] %}
+                                    <div class="me-1" style="width: 8px; height: 20px; background-color:
+                                                {% if day_perf.efficiency >= 90 %}#198754
+                                                {% elif day_perf.efficiency >= 75 %}#ffc107
+                                                {% else %}#dc3545{% endif %};
+                                                opacity: {{ day_perf.efficiency / 100 }};">
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                {% else %}
+                <div class="text-center text-muted py-4">
+                    <i class="fas fa-users fa-2x mb-2"></i>
+                    <p>No operator data available</p>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
 
 <div class="row">
     <!-- Daily Performance Chart -->
@@ -186,6 +282,75 @@
         </div>
     </div>
 
+    <!-- Daily Performance Trends -->
+    <div class="col-lg-12 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h6 class="mb-0"><i class="fas fa-chart-line me-2"></i>Daily Performance Trends (Site-wide)</h6>
+            </div>
+            <div class="card-body">
+                {% if daily_trend %}
+                <div class="row">
+                    <div class="col-12">
+                        <div class="table-responsive">
+                            <table class="table table-sm">
+                                <thead>
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>Site Efficiency</th>
+                                        <th>Total Incidents</th>
+                                        <th>Active Operators</th>
+                                        <th>Trend</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for day in daily_trend %}
+                                    <tr>
+                                        <td>{{ day.date }}</td>
+                                        <td>
+                                            {% if day.efficiency >= 90 %}
+                                                <span class="badge bg-success">{{ day.efficiency }}%</span>
+                                            {% elif day.efficiency >= 75 %}
+                                                <span class="badge bg-warning">{{ day.efficiency }}%</span>
+                                            {% else %}
+                                                <span class="badge bg-danger">{{ day.efficiency }}%</span>
+                                            {% endif %}
+                                        </td>
+                                        <td>{{ day.blockers }}</td>
+                                        <td>{{ day.operators }}</td>
+                                        <td>
+                                            {% if loop.index > 1 %}
+                                                {% set prev_efficiency = daily_trend[loop.index0-1].efficiency %}
+                                                {% if day.efficiency > prev_efficiency %}
+                                                    <i class="fas fa-arrow-up text-success"></i>
+                                                {% elif day.efficiency < prev_efficiency %}
+                                                    <i class="fas fa-arrow-down text-danger"></i>
+                                                {% else %}
+                                                    <i class="fas fa-arrow-right text-muted"></i>
+                                                {% endif %}
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                {% else %}
+                <div class="text-center text-muted py-4">
+                    <i class="fas fa-chart-line fa-2x mb-2"></i>
+                    <p>No trend data available</p>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="row">
     <!-- Recommendations -->
     <div class="col-lg-6 mb-4">
         <div class="card">

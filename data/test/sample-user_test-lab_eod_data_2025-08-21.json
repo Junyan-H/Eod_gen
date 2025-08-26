@@ -1,0 +1,27 @@
+{
+  "blockers": [
+    {
+      "description": "Demo application crash",
+      "category": "software",
+      "start_time": "2025-08-21 09:42:00",
+      "end_time": "2025-08-21 09:59:00",
+      "duration_minutes": 17,
+      "tickets": [],
+      "notes": []
+    }
+  ],
+  "current_blocker": null,
+  "last_updated": "2025-08-21 09:59:00",
+  "session_info": {
+    "pack_operator": "Sample User",
+    "support_operator": "Test Support",
+    "location": "Test Lab",
+    "pack_number": "TEST-PACK-98",
+    "key_used": "TEST-KEY-1",
+    "glove_number": "TEST-GLV-80",
+    "dongle_number": "TEST-DNG-672",
+    "phone_id": "TEST-PH-45",
+    "date": "2025-08-21",
+    "initialized_at": "2025-08-21 09:00:00"
+  }
+}

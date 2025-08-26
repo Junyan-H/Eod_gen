@@ -1,0 +1,68 @@
+{
+  "blockers": [
+    {
+      "description": "Hardware malfunction detected",
+      "category": "software",
+      "start_time": "2025-08-23 08:03:00",
+      "end_time": "2025-08-23 08:43:00",
+      "duration_minutes": 40,
+      "tickets": [],
+      "notes": []
+    },
+    {
+      "description": "Printer offline error",
+      "category": "hardware",
+      "start_time": "2025-08-23 16:01:00",
+      "end_time": "2025-08-23 17:04:00",
+      "duration_minutes": 63,
+      "tickets": [],
+      "notes": []
+    },
+    {
+      "description": "Printer offline error",
+      "category": "connectivity",
+      "start_time": "2025-08-23 10:51:00",
+      "end_time": "2025-08-23 11:59:00",
+      "duration_minutes": 68,
+      "tickets": [
+        {
+          "number": "TKT-7765",
+          "link": "LINK: https://support.example.com/ticket/7825"
+        },
+        {
+          "number": "TKT-2411",
+          "link": "LINK: https://support.example.com/ticket/3188"
+        }
+      ],
+      "notes": [
+        {
+          "content": "Temporary workaround implemented",
+          "timestamp": "2025-08-23 11:03:00"
+        }
+      ]
+    },
+    {
+      "description": "Network connectivity issue",
+      "category": "software",
+      "start_time": "2025-08-23 12:53:00",
+      "end_time": "2025-08-23 13:47:00",
+      "duration_minutes": 54,
+      "tickets": [],
+      "notes": []
+    }
+  ],
+  "current_blocker": null,
+  "last_updated": "2025-08-23 13:47:00",
+  "session_info": {
+    "pack_operator": "Charlie Brown",
+    "support_operator": "Support Team A",
+    "location": "Palo Alto",
+    "pack_number": "PACK-446",
+    "key_used": "KEY-39",
+    "glove_number": "GLV-440",
+    "dongle_number": "DNG-4426",
+    "phone_id": "PH-323",
+    "date": "2025-08-23",
+    "initialized_at": "2025-08-23 08:00:00"
+  }
+}

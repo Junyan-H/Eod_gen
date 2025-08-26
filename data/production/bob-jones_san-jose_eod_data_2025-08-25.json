@@ -1,0 +1,59 @@
+{
+  "blockers": [
+    {
+      "description": "Software crash on startup",
+      "category": "software",
+      "start_time": "2025-08-25 12:51:00",
+      "end_time": "2025-08-25 14:39:00",
+      "duration_minutes": 108,
+      "tickets": [],
+      "notes": []
+    },
+    {
+      "description": "System update installation",
+      "category": "hardware",
+      "start_time": "2025-08-25 14:32:00",
+      "end_time": "2025-08-25 16:03:00",
+      "duration_minutes": 91,
+      "tickets": [
+        {
+          "number": "TKT-1329",
+          "link": "LINK: https://support.example.com/ticket/2084"
+        },
+        {
+          "number": "TKT-9859",
+          "link": "LINK: https://support.example.com/ticket/3445"
+        }
+      ],
+      "notes": [
+        {
+          "content": "Escalated to network team",
+          "timestamp": "2025-08-25 15:39:00"
+        }
+      ]
+    },
+    {
+      "description": "VPN connection failed",
+      "category": "software",
+      "start_time": "2025-08-25 10:08:00",
+      "end_time": "2025-08-25 11:35:00",
+      "duration_minutes": 87,
+      "tickets": [],
+      "notes": []
+    }
+  ],
+  "current_blocker": null,
+  "last_updated": "2025-08-25 11:35:00",
+  "session_info": {
+    "pack_operator": "Bob Jones",
+    "support_operator": "Support Team B",
+    "location": "San Jose",
+    "pack_number": "PACK-737",
+    "key_used": "KEY-69",
+    "glove_number": "GLV-997",
+    "dongle_number": "DNG-1406",
+    "phone_id": "PH-169",
+    "date": "2025-08-25",
+    "initialized_at": "2025-08-25 08:00:00"
+  }
+}

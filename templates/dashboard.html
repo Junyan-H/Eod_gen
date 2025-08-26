@@ -29,6 +29,18 @@
                                 {% endfor %}
                             </div>
                         {% endif %}
+
+                        {% if current_blocker.notes %}
+                            <div class="mt-2">
+                                <small class="text-muted">Notes: </small>
+                                {% for note in current_blocker.notes %}
+                                    <div class="mt-1 p-2 bg-light rounded">
+                                        <small class="text-muted">[{{ note.timestamp }}]</small>
+                                        <div>{{ note.content }}</div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
                     </div>
                     
                     <form method="POST" action="{{ url_for('end_blocker') }}" class="d-inline">

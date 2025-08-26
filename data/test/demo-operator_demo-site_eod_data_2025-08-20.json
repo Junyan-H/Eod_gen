@@ -1,0 +1,36 @@
+{
+  "blockers": [
+    {
+      "description": "Sample data loading error",
+      "category": "other",
+      "start_time": "2025-08-20 12:26:00",
+      "end_time": "2025-08-20 12:38:00",
+      "duration_minutes": 12,
+      "tickets": [],
+      "notes": []
+    },
+    {
+      "description": "Test server timeout",
+      "category": "connectivity",
+      "start_time": "2025-08-20 14:14:00",
+      "end_time": "2025-08-20 15:01:00",
+      "duration_minutes": 47,
+      "tickets": [],
+      "notes": []
+    }
+  ],
+  "current_blocker": null,
+  "last_updated": "2025-08-20 15:01:00",
+  "session_info": {
+    "pack_operator": "Demo Operator",
+    "support_operator": "Test Support",
+    "location": "Demo Site",
+    "pack_number": "TEST-PACK-6",
+    "key_used": "TEST-KEY-4",
+    "glove_number": "TEST-GLV-58",
+    "dongle_number": "TEST-DNG-884",
+    "phone_id": "TEST-PH-34",
+    "date": "2025-08-20",
+    "initialized_at": "2025-08-20 09:00:00"
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "blockers": [
+    {
+      "description": "VPN connection failed",
+      "category": "connectivity",
+      "start_time": "2025-08-24 12:57:00",
+      "end_time": "2025-08-24 14:34:00",
+      "duration_minutes": 97,
+      "tickets": [
+        {
+          "number": "TKT-9370",
+          "link": "LINK: https://support.example.com/ticket/9058"
+        },
+        {
+          "number": "TKT-8497",
+          "link": "LINK: https://support.example.com/ticket/3895"
+        }
+      ],
+      "notes": [
+        {
+          "content": "Escalated to network team",
+          "timestamp": "2025-08-24 13:04:00"
+        }
+      ]
+    }
+  ],
+  "current_blocker": null,
+  "last_updated": "2025-08-24 14:34:00",
+  "session_info": {
+    "pack_operator": "Diana Wilson",
+    "support_operator": "Support Team A",
+    "location": "Fremont",
+    "pack_number": "PACK-282",
+    "key_used": "KEY-74",
+    "glove_number": "GLV-360",
+    "dongle_number": "DNG-7557",
+    "phone_id": "PH-911",
+    "date": "2025-08-24",
+    "initialized_at": "2025-08-24 08:00:00"
+  }
+}

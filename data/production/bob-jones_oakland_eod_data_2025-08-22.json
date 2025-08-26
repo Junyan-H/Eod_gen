@@ -1,0 +1,55 @@
+{
+  "blockers": [
+    {
+      "description": "Network connectivity issue",
+      "category": "connectivity",
+      "start_time": "2025-08-22 10:05:00",
+      "end_time": "2025-08-22 11:01:00",
+      "duration_minutes": 56,
+      "tickets": [
+        {
+          "number": "TKT-8488",
+          "link": "LINK: https://support.example.com/ticket/2745"
+        },
+        {
+          "number": "TKT-8071",
+          "link": "LINK: https://support.example.com/ticket/1854"
+        }
+      ],
+      "notes": [
+        {
+          "content": "Contacted IT support for assistance",
+          "timestamp": "2025-08-22 10:35:00"
+        }
+      ]
+    },
+    {
+      "description": "Network connectivity issue",
+      "category": "other",
+      "start_time": "2025-08-22 11:47:00",
+      "end_time": "2025-08-22 13:34:00",
+      "duration_minutes": 107,
+      "tickets": [],
+      "notes": [
+        {
+          "content": "Escalated to network team",
+          "timestamp": "2025-08-22 12:57:00"
+        }
+      ]
+    }
+  ],
+  "current_blocker": null,
+  "last_updated": "2025-08-22 13:34:00",
+  "session_info": {
+    "pack_operator": "Bob Jones",
+    "support_operator": "Support Team B",
+    "location": "Oakland",
+    "pack_number": "PACK-838",
+    "key_used": "KEY-98",
+    "glove_number": "GLV-680",
+    "dongle_number": "DNG-5947",
+    "phone_id": "PH-944",
+    "date": "2025-08-22",
+    "initialized_at": "2025-08-22 08:00:00"
+  }
+}

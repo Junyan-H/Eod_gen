@@ -1,0 +1,82 @@
+{
+  "blockers": [
+    {
+      "description": "swe blocker 1",
+      "category": "software",
+      "start_time": "2025-08-25 23:46:00",
+      "end_time": "2025-08-25 23:46:32",
+      "duration_minutes": 0,
+      "tickets": [
+        {
+          "number": "connection",
+          "link": ""
+        }
+      ],
+      "notes": [
+        {
+          "content": "couldn't connect",
+          "timestamp": "2025-08-25 23:46:19"
+        }
+      ]
+    },
+    {
+      "description": "hardware",
+      "category": "hardware",
+      "start_time": "2025-08-25 23:46:39",
+      "end_time": "2025-08-25 23:46:59",
+      "duration_minutes": 0,
+      "tickets": [],
+      "notes": [
+        {
+          "content": "camera is broken",
+          "timestamp": "2025-08-25 23:46:51"
+        }
+      ]
+    },
+    {
+      "description": "couldn;t connect",
+      "category": "connectivity",
+      "start_time": "2025-08-25 23:47:36",
+      "end_time": "2025-08-25 23:48:21",
+      "duration_minutes": 0,
+      "tickets": [
+        {
+          "number": "cant connect to server",
+          "link": ""
+        }
+      ],
+      "notes": [
+        {
+          "content": "server broken",
+          "timestamp": "2025-08-25 23:47:51"
+        },
+        {
+          "content": "hermes error",
+          "timestamp": "2025-08-25 23:47:59"
+        }
+      ]
+    },
+    {
+      "description": "blocker 3",
+      "category": "software",
+      "start_time": "2025-08-25 23:49:53",
+      "end_time": "2025-08-25 23:55:56",
+      "duration_minutes": 6,
+      "tickets": [],
+      "notes": []
+    }
+  ],
+  "current_blocker": null,
+  "last_updated": "2025-08-25 23:55:56",
+  "session_info": {
+    "pack_operator": "jh",
+    "support_operator": "jh",
+    "location": "frem",
+    "pack_number": "1",
+    "key_used": "1",
+    "glove_number": "1",
+    "dongle_number": "1",
+    "phone_id": "1",
+    "date": "2025-08-25"
+  }
+}

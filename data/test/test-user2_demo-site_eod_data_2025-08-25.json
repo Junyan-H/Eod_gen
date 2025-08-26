@@ -1,0 +1,27 @@
+{
+  "blockers": [
+    {
+      "description": "Test server timeout",
+      "category": "hardware",
+      "start_time": "2025-08-25 11:34:00",
+      "end_time": "2025-08-25 12:04:00",
+      "duration_minutes": 30,
+      "tickets": [],
+      "notes": []
+    }
+  ],
+  "current_blocker": null,
+  "last_updated": "2025-08-25 12:04:00",
+  "session_info": {
+    "pack_operator": "Test User2",
+    "support_operator": "Test Support",
+    "location": "Demo Site",
+    "pack_number": "TEST-PACK-68",
+    "key_used": "TEST-KEY-1",
+    "glove_number": "TEST-GLV-19",
+    "dongle_number": "TEST-DNG-299",
+    "phone_id": "TEST-PH-32",
+    "date": "2025-08-25",
+    "initialized_at": "2025-08-25 09:00:00"
+  }
+}

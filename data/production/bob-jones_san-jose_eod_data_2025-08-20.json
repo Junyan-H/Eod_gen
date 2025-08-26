@@ -1,0 +1,36 @@
+{
+  "blockers": [
+    {
+      "description": "Software crash on startup",
+      "category": "other",
+      "start_time": "2025-08-20 12:11:00",
+      "end_time": "2025-08-20 12:48:00",
+      "duration_minutes": 37,
+      "tickets": [],
+      "notes": []
+    },
+    {
+      "description": "Database connection timeout",
+      "category": "connectivity",
+      "start_time": "2025-08-20 09:14:00",
+      "end_time": "2025-08-20 09:36:00",
+      "duration_minutes": 22,
+      "tickets": [],
+      "notes": []
+    }
+  ],
+  "current_blocker": null,
+  "last_updated": "2025-08-20 09:36:00",
+  "session_info": {
+    "pack_operator": "Bob Jones",
+    "support_operator": "On-Call Support",
+    "location": "San Jose",
+    "pack_number": "PACK-229",
+    "key_used": "KEY-94",
+    "glove_number": "GLV-429",
+    "dongle_number": "DNG-5373",
+    "phone_id": "PH-638",
+    "date": "2025-08-20",
+    "initialized_at": "2025-08-20 08:00:00"
+  }
+}

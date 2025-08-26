@@ -1,0 +1,64 @@
+{
+  "blockers": [
+    {
+      "description": "Network connectivity issue",
+      "category": "hardware",
+      "start_time": "2025-08-25 14:43:00",
+      "end_time": "2025-08-25 16:42:00",
+      "duration_minutes": 119,
+      "tickets": [
+        {
+          "number": "TKT-7861",
+          "link": "LINK: https://support.example.com/ticket/2528"
+        },
+        {
+          "number": "TKT-1832",
+          "link": "LINK: https://support.example.com/ticket/8187"
+        }
+      ],
+      "notes": [
+        {
+          "content": "Temporary workaround implemented",
+          "timestamp": "2025-08-25 15:46:00"
+        }
+      ]
+    },
+    {
+      "description": "Printer offline error",
+      "category": "connectivity",
+      "start_time": "2025-08-25 15:38:00",
+      "end_time": "2025-08-25 17:28:00",
+      "duration_minutes": 110,
+      "tickets": [],
+      "notes": []
+    },
+    {
+      "description": "Software crash on startup",
+      "category": "hardware",
+      "start_time": "2025-08-25 11:38:00",
+      "end_time": "2025-08-25 13:35:00",
+      "duration_minutes": 117,
+      "tickets": [
+        {
+          "number": "TKT-5143",
+          "link": "LINK: https://support.example.com/ticket/6729"
+        }
+      ],
+      "notes": []
+    }
+  ],
+  "current_blocker": null,
+  "last_updated": "2025-08-25 13:35:00",
+  "session_info": {
+    "pack_operator": "Charlie Brown",
+    "support_operator": "On-Call Support",
+    "location": "Berkeley",
+    "pack_number": "PACK-223",
+    "key_used": "KEY-17",
+    "glove_number": "GLV-406",
+    "dongle_number": "DNG-8993",
+    "phone_id": "PH-908",
+    "date": "2025-08-25",
+    "initialized_at": "2025-08-25 08:00:00"
+  }
+}

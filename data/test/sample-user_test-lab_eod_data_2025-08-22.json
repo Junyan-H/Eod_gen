@@ -1,0 +1,27 @@
+{
+  "blockers": [
+    {
+      "description": "Sample data loading error",
+      "category": "connectivity",
+      "start_time": "2025-08-22 13:18:00",
+      "end_time": "2025-08-22 13:48:00",
+      "duration_minutes": 30,
+      "tickets": [],
+      "notes": []
+    }
+  ],
+  "current_blocker": null,
+  "last_updated": "2025-08-22 13:48:00",
+  "session_info": {
+    "pack_operator": "Sample User",
+    "support_operator": "Test Support",
+    "location": "Test Lab",
+    "pack_number": "TEST-PACK-45",
+    "key_used": "TEST-KEY-1",
+    "glove_number": "TEST-GLV-94",
+    "dongle_number": "TEST-DNG-953",
+    "phone_id": "TEST-PH-76",
+    "date": "2025-08-22",
+    "initialized_at": "2025-08-22 09:00:00"
+  }
+}

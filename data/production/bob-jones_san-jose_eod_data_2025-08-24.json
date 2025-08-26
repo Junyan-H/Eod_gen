@@ -1,0 +1,32 @@
+{
+  "blockers": [
+    {
+      "description": "VPN connection failed",
+      "category": "connectivity",
+      "start_time": "2025-08-24 14:04:00",
+      "end_time": "2025-08-24 14:19:00",
+      "duration_minutes": 15,
+      "tickets": [],
+      "notes": [
+        {
+          "content": "Contacted IT support for assistance",
+          "timestamp": "2025-08-24 14:16:00"
+        }
+      ]
+    }
+  ],
+  "current_blocker": null,
+  "last_updated": "2025-08-24 14:19:00",
+  "session_info": {
+    "pack_operator": "Bob Jones",
+    "support_operator": "Support Team B",
+    "location": "San Jose",
+    "pack_number": "PACK-784",
+    "key_used": "KEY-88",
+    "glove_number": "GLV-728",
+    "dongle_number": "DNG-5585",
+    "phone_id": "PH-199",
+    "date": "2025-08-24",
+    "initialized_at": "2025-08-24 08:00:00"
+  }
+}

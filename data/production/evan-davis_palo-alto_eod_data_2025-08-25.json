@@ -1,0 +1,50 @@
+{
+  "blockers": [
+    {
+      "description": "Routine maintenance window",
+      "category": "connectivity",
+      "start_time": "2025-08-25 11:45:00",
+      "end_time": "2025-08-25 12:27:00",
+      "duration_minutes": 42,
+      "tickets": [],
+      "notes": [
+        {
+          "content": "Standard troubleshooting completed",
+          "timestamp": "2025-08-25 11:51:00"
+        }
+      ]
+    },
+    {
+      "description": "User workstation issue",
+      "category": "connectivity",
+      "start_time": "2025-08-25 16:14:00",
+      "end_time": "2025-08-25 16:56:00",
+      "duration_minutes": 42,
+      "tickets": [
+        {
+          "number": "MEDIUM-3547",
+          "link": "LINK: https://support.example.com/ticket/3368"
+        },
+        {
+          "number": "MEDIUM-9706",
+          "link": "LINK: https://support.example.com/ticket/5379"
+        }
+      ],
+      "notes": []
+    }
+  ],
+  "current_blocker": null,
+  "last_updated": "2025-08-25 16:56:00",
+  "session_info": {
+    "pack_operator": "Evan Davis",
+    "support_operator": "Primary Support",
+    "location": "Palo Alto",
+    "pack_number": "PACK-450",
+    "key_used": "KEY-30",
+    "glove_number": "GLV-381",
+    "dongle_number": "DNG-1161",
+    "phone_id": "PH-206",
+    "date": "2025-08-25",
+    "initialized_at": "2025-08-25 08:00:00"
+  }
+}

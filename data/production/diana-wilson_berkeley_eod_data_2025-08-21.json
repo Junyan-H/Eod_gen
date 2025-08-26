@@ -1,0 +1,63 @@
+{
+  "blockers": [
+    {
+      "description": "System update installation",
+      "category": "other",
+      "start_time": "2025-08-21 10:51:00",
+      "end_time": "2025-08-21 12:04:00",
+      "duration_minutes": 73,
+      "tickets": [
+        {
+          "number": "TKT-8032",
+          "link": "LINK: https://support.example.com/ticket/9361"
+        },
+        {
+          "number": "TKT-8075",
+          "link": "LINK: https://support.example.com/ticket/3665"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "description": "VPN connection failed",
+      "category": "other",
+      "start_time": "2025-08-21 09:58:00",
+      "end_time": "2025-08-21 11:39:00",
+      "duration_minutes": 101,
+      "tickets": [
+        {
+          "number": "TKT-8091",
+          "link": "LINK: https://support.example.com/ticket/9288"
+        },
+        {
+          "number": "TKT-9704",
+          "link": "LINK: https://support.example.com/ticket/6709"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "description": "VPN connection failed",
+      "category": "hardware",
+      "start_time": "2025-08-21 10:12:00",
+      "end_time": "2025-08-21 12:12:00",
+      "duration_minutes": 120,
+      "tickets": [],
+      "notes": []
+    }
+  ],
+  "current_blocker": null,
+  "last_updated": "2025-08-21 12:12:00",
+  "session_info": {
+    "pack_operator": "Diana Wilson",
+    "support_operator": "Support Team A",
+    "location": "Berkeley",
+    "pack_number": "PACK-542",
+    "key_used": "KEY-70",
+    "glove_number": "GLV-798",
+    "dongle_number": "DNG-8524",
+    "phone_id": "PH-877",
+    "date": "2025-08-21",
+    "initialized_at": "2025-08-21 08:00:00"
+  }
+}

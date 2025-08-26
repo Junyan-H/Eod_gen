@@ -1,0 +1,46 @@
+{
+  "blockers": [
+    {
+      "description": "Hardware malfunction detected",
+      "category": "software",
+      "start_time": "2025-08-26 10:20:00",
+      "end_time": "2025-08-26 12:20:00",
+      "duration_minutes": 120,
+      "tickets": [],
+      "notes": [
+        {
+          "content": "Issue resolved after system restart",
+          "timestamp": "2025-08-26 11:31:00"
+        }
+      ]
+    },
+    {
+      "description": "Printer offline error",
+      "category": "hardware",
+      "start_time": "2025-08-26 11:58:00",
+      "end_time": "2025-08-26 12:31:00",
+      "duration_minutes": 33,
+      "tickets": [
+        {
+          "number": "TKT-7214",
+          "link": "LINK: https://support.example.com/ticket/3080"
+        }
+      ],
+      "notes": []
+    }
+  ],
+  "current_blocker": null,
+  "last_updated": "2025-08-26 12:31:00",
+  "session_info": {
+    "pack_operator": "Bob Jones",
+    "support_operator": "Support Team A",
+    "location": "San Jose",
+    "pack_number": "PACK-648",
+    "key_used": "KEY-91",
+    "glove_number": "GLV-421",
+    "dongle_number": "DNG-5603",
+    "phone_id": "PH-207",
+    "date": "2025-08-26",
+    "initialized_at": "2025-08-26 08:00:00"
+  }
+}

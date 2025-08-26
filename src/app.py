@@ -9,12 +9,32 @@ from typing import Dict, List, Optional, Any, Union
 json handler
 '''
 class JsonHandler:
-    def __init__(self, filename: Optional[str] = None, operators: str = 'NA') -> None:
+    def __init__(self, test_mode: bool = False, filename: Optional[str] = None, session_info: Optional[dict] = None) -> None:
+        # Set base directory
+        if test_mode:
+            print("TEST MODE ACTIVATED")
+            base_dir = "data/test/"
+        else:
+            base_dir = "data/production/"
+        
+        # Generate filename if not provided
         if filename is None:
+            operators = ""
+            if session_info:
+                pack_op = session_info.get("pack_operator", "").replace(' ', '-').replace('/', '-')
+                location = session_info.get("location", "").replace(' ', '-').replace('/', '-')
+                if pack_op:
+                    operators = pack_op
+                    if location:
+                        operators += f"_{location}"
+            
             # Create date-specific filename
             today = datetime.now().strftime("%Y-%m-%d")
             filename = f"{operators}_eod_data_{today}.json"
-        self.filename = filename
+        
+        self.filename = os.path.join(base_dir, filename)
+
+        # Load existing data or create new
         self.data = self.load_data()
 
     '''
@@ -43,36 +63,23 @@ class JsonHandler:
     writes to file
     '''
     def save_data(self) -> None:
+        # Ensure directory exists before saving
+        os.makedirs(os.path.dirname(self.filename), exist_ok=True)
         with open(self.filename, 'w') as f:
             json.dump(self.data, f, indent=2)
-'''
-status tracker
-'''
-class StatusTracker:
-    def __init__(self, test_mode: bool = False) -> None:
-        if test_mode:
-            print("TEST MODE ACTIVATED")
-            self.js_handler = JsonHandler("data/test/test_data.json")
-        else:
-            self.js_handler = JsonHandler()
-
-        '''
-        Generates a status report:
-        three status types: break, collecting, blocker
-        '''
+# Removed StatusTracker class - no longer used
 
 
 '''
 eod runner
 '''
 class EODTracker:
-    def __init__(self, test_mode: bool = False, operators: str = 'NA') -> None:
-        self.operators = operators
+    def __init__(self, test_mode: bool = False, session_info: Optional[dict] = None) -> None:
         if test_mode:
             print("TEST MODE ACTIVATED")
-            self.js_handler = JsonHandler("data/test/test_data.json", operators)
+            self.js_handler = JsonHandler(test_mode=True, session_info=session_info)
         else:
-            self.js_handler = JsonHandler(operators=operators)
+            self.js_handler = JsonHandler(test_mode=False, session_info=session_info)
 
         self.check_recovery()
     
