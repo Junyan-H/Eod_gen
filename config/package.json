@@ -1,0 +1,37 @@
+{
+  "name": "eod-generator",
+  "version": "1.0.0",
+  "description": "End of Day Generator - Flask Web Application",
+  "main": "../static/js/dist/scripts.js",
+  "scripts": {
+    "build": "tsc -p ./tsconfig.json",
+    "build:watch": "tsc -p ./tsconfig.json --watch",
+    "clean": "rm -rf ../static/js/dist/*",
+    "clean:all": "npm run clean && rm -rf ../node_modules",
+    "dev": "concurrently \"npm run build:watch\" \"python3 ../src/run_flask.py\"",
+    "start": "python3 ../src/run_flask.py",
+    "build:prod": "npm run clean && npm run build",
+    "prebuild": "npm run clean"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0",
+    "concurrently": "^8.0.0",
+    "@types/node": "^20.0.0"
+  },
+  "files": [
+    "../static/js/dist/",
+    "../static/ts/",
+    "../templates/",
+    "../src/*.py",
+    "../requirements.txt"
+  ],
+  "keywords": [
+    "flask",
+    "typescript",
+    "eod",
+    "blocker-tracking",
+    "web-application"
+  ],
+  "author": "EOD Generator Team",
+  "license": "MIT"
+}

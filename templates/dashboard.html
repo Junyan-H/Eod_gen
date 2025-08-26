@@ -15,8 +15,11 @@
                     <div class="alert alert-warning">
                         <h6><i class="fas fa-clock me-2"></i>Active Blocker</h6>
                         <p class="mb-1"><strong>{{ current_blocker.description }}</strong></p>
+                        <div class="mb-2">
+                            <span class="badge bg-info me-2">{{ current_blocker.category }}</span>
+                            <span class="badge bg-warning">{{ current_duration }} minutes</span>
+                        </div>
                         <small class="text-muted">Started: {{ current_blocker.start_time }}</small>
-                        <span class="badge bg-warning ms-2">{{ current_duration }} minutes</span>
                         
                         {% if current_blocker.tickets %}
                             <div class="mt-2">
@@ -40,11 +43,23 @@
                 {% endif %}
                 
                 <form method="POST" action="{{ url_for('start_blocker') }}" class="mt-3">
-                    <div class="input-group">
-                        <input type="text" name="description" class="form-control" placeholder="Enter blocker description..." required>
-                        <button type="submit" class="btn btn-primary">
-                            <i class="fas fa-plus me-1"></i>Start Blocker
-                        </button>
+                    <div class="row g-2">
+                        <div class="col-md-6">
+                            <input type="text" name="description" class="form-control" placeholder="Enter blocker description..." required>
+                        </div>
+                        <div class="col-md-4">
+                            <select name="category" class="form-select" required>
+                                <option value="software">Software</option>
+                                <option value="connectivity">Connectivity</option>
+                                <option value="hardware">Hardware</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <button type="submit" class="btn btn-primary w-100">
+                                <i class="fas fa-plus me-1"></i>Start
+                            </button>
+                        </div>
                     </div>
                 </form>
             </div>
@@ -115,7 +130,10 @@
                     {% for blocker in today_blockers[-5:] %}
                         <div class="mb-2">
                             <div class="text-truncate"><strong>{{ blocker.description }}</strong></div>
-                            <small class="text-muted">{{ (blocker.duration_minutes // 60) }}h {{ (blocker.duration_minutes % 60) }}m</small>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="badge bg-secondary">{{ blocker.category }}</span>
+                                <small class="text-muted">{{ (blocker.duration_minutes // 60) }}h {{ (blocker.duration_minutes % 60) }}m</small>
+                            </div>
                         </div>
                     {% endfor %}
                 {% endif %}

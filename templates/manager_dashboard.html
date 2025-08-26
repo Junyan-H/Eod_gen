@@ -1,0 +1,254 @@
+{% extends "base.html" %}
+
+{% block title %}Manager Dashboard{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12 mb-4">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0"><i class="fas fa-chart-line me-2"></i>Manager Dashboard</h5>
+                <div>
+                    <span class="badge bg-info">{{ date_range.start.strftime('%m/%d') }} - {{ date_range.end.strftime('%m/%d') }}</span>
+                    <a href="{{ url_for('dashboard') }}" class="btn btn-outline-primary btn-sm ms-2">
+                        <i class="fas fa-user me-1"></i>Operator View
+                    </a>
+                </div>
+            </div>
+            <div class="card-body">
+                <!-- Key Metrics Row -->
+                <div class="row mb-4">
+                    <div class="col-md-3">
+                        <div class="text-center p-3 bg-primary text-white rounded">
+                            <h3>{{ total_blockers }}</h3>
+                            <small>Total Incidents (7 days)</small>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="text-center p-3 bg-warning text-dark rounded">
+                            <h3>{{ (total_downtime // 60) }}h {{ (total_downtime % 60) }}m</h3>
+                            <small>Total Downtime</small>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="text-center p-3 bg-info text-white rounded">
+                            <h3>{{ avg_resolution_time }}min</h3>
+                            <small>Avg Resolution Time</small>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="text-center p-3 bg-success text-white rounded">
+                            <h3>{{ ((7*480 - total_downtime) / (7*480) * 100) | round(1) }}%</h3>
+                            <small>Overall Efficiency</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <!-- Daily Performance Chart -->
+    <div class="col-lg-8 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h6 class="mb-0"><i class="fas fa-calendar-alt me-2"></i>Daily Performance Trends</h6>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Operator</th>
+                                <th>Location</th>
+                                <th>Incidents</th>
+                                <th>Downtime</th>
+                                <th>Efficiency</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for date_str, stats in daily_stats.items() %}
+                            <tr>
+                                <td>{{ stats.date.strftime('%m/%d/%Y') }}</td>
+                                <td>
+                                    {% if stats.session_info %}
+                                        {{ stats.session_info.pack_operator or 'Unknown' }}
+                                    {% else %}
+                                        <span class="text-muted">No data</span>
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    {% if stats.session_info %}
+                                        {{ stats.session_info.location or 'Unknown' }}
+                                    {% else %}
+                                        <span class="text-muted">-</span>
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    {% if stats.blocker_count > 0 %}
+                                        <span class="badge bg-secondary">{{ stats.blocker_count }}</span>
+                                    {% else %}
+                                        <span class="text-muted">0</span>
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    {% if stats.total_minutes > 0 %}
+                                        {{ (stats.total_minutes // 60) }}h {{ (stats.total_minutes % 60) }}m
+                                    {% else %}
+                                        <span class="text-muted">0m</span>
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    {% if stats.efficiency >= 90 %}
+                                        <span class="badge bg-success">{{ stats.efficiency | round(1) }}%</span>
+                                    {% elif stats.efficiency >= 75 %}
+                                        <span class="badge bg-warning">{{ stats.efficiency | round(1) }}%</span>
+                                    {% else %}
+                                        <span class="badge bg-danger">{{ stats.efficiency | round(1) }}%</span>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Category Analysis -->
+    <div class="col-lg-4 mb-4">
+        <div class="card h-100">
+            <div class="card-header">
+                <h6 class="mb-0"><i class="fas fa-tags me-2"></i>Issue Categories</h6>
+            </div>
+            <div class="card-body">
+                {% if category_analytics %}
+                    {% for category, stats in category_analytics.items() %}
+                    <div class="mb-3">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="text-capitalize fw-bold">{{ category }}</span>
+                            <span class="badge bg-secondary">{{ stats.count }}</span>
+                        </div>
+                        <div class="progress mt-1" style="height: 8px;">
+                            <div class="progress-bar" role="progressbar" 
+                                 style="width: {{ (stats.total_minutes / total_downtime * 100) if total_downtime > 0 else 0 }}%">
+                            </div>
+                        </div>
+                        <small class="text-muted">
+                            {{ (stats.total_minutes // 60) }}h {{ (stats.total_minutes % 60) }}m total • 
+                            {{ stats.avg_resolution_time }}min avg
+                        </small>
+                    </div>
+                    {% endfor %}
+                {% else %}
+                    <div class="text-center text-muted py-4">
+                        <i class="fas fa-chart-pie fa-2x mb-2"></i>
+                        <p>No category data available</p>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <!-- Top Problem Areas -->
+    <div class="col-lg-6 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h6 class="mb-0"><i class="fas fa-exclamation-triangle me-2"></i>Top Problem Areas</h6>
+            </div>
+            <div class="card-body">
+                {% if top_categories %}
+                    {% for category, stats in top_categories %}
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <div>
+                            <div class="fw-bold text-capitalize">{{ category }}</div>
+                            <small class="text-muted">{{ stats.count }} incidents</small>
+                        </div>
+                        <div class="text-end">
+                            <div class="text-danger fw-bold">{{ (stats.total_minutes // 60) }}h {{ (stats.total_minutes % 60) }}m</div>
+                            <small class="text-muted">{{ stats.avg_resolution_time }}min avg</small>
+                        </div>
+                    </div>
+                    {% if not loop.last %}<hr>{% endif %}
+                    {% endfor %}
+                {% else %}
+                    <div class="text-center text-muted py-4">
+                        <i class="fas fa-thumbs-up fa-2x mb-2"></i>
+                        <p>No major issues detected</p>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Recommendations -->
+    <div class="col-lg-6 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h6 class="mb-0"><i class="fas fa-lightbulb me-2"></i>Recommendations</h6>
+            </div>
+            <div class="card-body">
+                <div class="mb-3">
+                    <div class="alert alert-info">
+                        <strong>Performance Insights:</strong>
+                        <ul class="mb-0 mt-2">
+                            {% if avg_resolution_time > 30 %}
+                            <li>Average resolution time ({{ avg_resolution_time }}min) is above target. Consider additional training.</li>
+                            {% endif %}
+                            {% if top_categories|length > 0 %}
+                            <li>Focus on {{ top_categories[0][0] }} issues - they account for the most downtime.</li>
+                            {% endif %}
+                            {% if total_blockers < 5 %}
+                            <li>Low incident count indicates good operational stability.</li>
+                            {% elif total_blockers > 20 %}
+                            <li>High incident count may indicate systemic issues requiring attention.</li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <h6 class="text-muted">Quick Actions</h6>
+                    <div class="btn-group-vertical gap-2 w-100">
+                        <button class="btn btn-outline-primary btn-sm" onclick="window.print()">
+                            <i class="fas fa-print me-1"></i>Print Weekly Report
+                        </button>
+                        <a href="{{ url_for('eod_report') }}" class="btn btn-outline-secondary btn-sm">
+                            <i class="fas fa-file-alt me-1"></i>View Today's EOD
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+@media print {
+    .navbar, .btn, .card-header .btn {
+        display: none !important;
+    }
+    
+    .card {
+        border: none !important;
+        box-shadow: none !important;
+        page-break-inside: avoid;
+    }
+    
+    .container {
+        max-width: 100% !important;
+        padding: 0 !important;
+    }
+
+    .col-lg-8, .col-lg-4, .col-lg-6 {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+}
+</style>
+{% endblock %}
